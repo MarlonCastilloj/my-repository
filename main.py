@@ -1,7 +1,6 @@
 from src.services import *
 program = False
 
-
 while program == False:
     option = menu_principal()
     program = True
@@ -11,7 +10,7 @@ while program == False:
         show_product()
     elif option == 3: 
         search_product()
-    elif option == 4: 
+    elif option == 4:  
         update_product()
     elif option == 5:
         delete_product()

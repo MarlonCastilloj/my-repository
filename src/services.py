@@ -5,41 +5,45 @@ def menu_principal():
     id_menu = int(input("Digite un número (1 -9) según lo que desee hacer: "))
     return id_menu
 
-inventory = {
-    "id_product": int,
-    "name": str, 
-    "value": float, 
-    "stock": int
-    }
-
 #Función #1 -  Permite crear productos
 
+inventory_list = [] 
 def create_product():
-    print("----Agregar Producto----")
+    print("🟩​Agregar Producto🟩​")
     cant_product = int(input("¿Cuántos productos desea agregar?: "))
-    id_count = 0
-    for i in range (cant_product):
-        print(f"---[Producto °{i +1}]---")
+    conteo_antes = len(inventory_list)
+    for i in range(cant_product):
+        cant_actual = len(inventory_list) + 1
+        print(f"\n ---[Producto °{cant_actual}]---")
         name = input("Ingrese el nombre del producto: ")
         value = input("Ingrese el valor del producto: ")
         stock = int(input("Ingrese la cantidad del producto: "))
-        id_count = id_count +1
-        #Agrego productos al diccionario
-        inventory["id_product"] = id_count
-        inventory["name"] = name
-        inventory["value"] = value
-        inventory["stock"] = stock    
-    for i in range (id_count):
-        print(inventory["id_product"])    
-        print(inventory["name"])    
-        print(inventory["value"])    
-        print(inventory["stock"])
-        print("------")    
+        
+        product = {
+            "id_product": cant_actual,
+            "name": name,
+            "value": value,
+            "stock": stock
+        }
+        inventory_list.append(product)
+    if len(inventory_list) == conteo_antes + cant_product:
+        print(f"\n[{len(inventory_list)}] Productos totales en inventario ✅")
+        print("\n 1. Agregar otro \n 2. Ir a menú")
+        confirm_create = int(input("Digite opción: "))
+        if confirm_create == 1:
+            create_product()
+        elif confirm_create == 2:
+            menu_principal()
+   
    
 #Función #2 -  Permite Mostrar productos
 
 def show_product():
-    print("Mostrar")
+    if not inventory_list:
+        print("\n[0] productos en inventario. ❌")
+    else:
+        for p in inventory_list:
+            print(f"ID: {p['id_product']} | Nombre: {p['name']} | Stock: {p['stock']}")
 
 #Función #3 -  Permite Buscar productos
 
