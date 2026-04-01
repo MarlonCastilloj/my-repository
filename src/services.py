@@ -2,7 +2,7 @@
 def menu_principal():
     print("CONTROL DE INVENTARIO - MARLON CASTILLO")
     print(" 1. Agregar \n 2. Mostrar \n 3. Buscar \n 4. Actualizar \n 5. Eliminar \n 6. Estadísticas \n 7. Guardar CSV \n 8. Cargar CSV \n 8. Salir")
-    id_menu = int(input("Digite un número (1 -9) según lo que desee hacer: "))
+    id_menu = int(input("\nDigite un número (1 -9) según lo que desee hacer: "))
     return id_menu
 
 #Función #1 -  Permite crear productos
@@ -11,7 +11,6 @@ inventory_list = []
 def create_product():
     print("🟩​Agregar Producto🟩​")
     cant_product = int(input("¿Cuántos productos desea agregar?: "))
-    conteo_antes = len(inventory_list)
     for i in range(cant_product):
         cant_actual = len(inventory_list) + 1
         print(f"\n ---[Producto °{cant_actual}]---")
@@ -26,16 +25,8 @@ def create_product():
             "stock": stock
         }
         inventory_list.append(product)
-    if len(inventory_list) == conteo_antes + cant_product:
-        print(f"\n[{len(inventory_list)}] Productos totales en inventario ✅")
-        print("\n 1. Agregar otro \n 2. Ir a menú")
-        confirm_create = int(input("Digite opción: "))
-        if confirm_create == 1:
-            create_product()
-        elif confirm_create == 2:
-            menu_principal()
-   
-   
+        print(f"\n[{len(inventory_list)} productos agregados ✅​]\n")
+ 
 #Función #2 -  Permite Mostrar productos
 
 def show_product():
@@ -43,7 +34,7 @@ def show_product():
         print("\n[0] productos en inventario. ❌")
     else:
         for p in inventory_list:
-            print(f"ID: {p['id_product']} | Nombre: {p['name']} | Stock: {p['stock']}")
+            print(f"\nID: {p['id_product']} | Nombre: {p['name']} | Stock: {p['stock']}\n")
 
 #Función #3 -  Permite Buscar productos
 

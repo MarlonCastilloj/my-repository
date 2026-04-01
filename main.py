@@ -3,7 +3,6 @@ program = False
 
 while program == False:
     option = menu_principal()
-    program = True
     if option == 1:
         create_product()
     elif option == 2: 
