@@ -1,7 +1,7 @@
 #Menú principal
 def menu_principal():
     print("CONTROL DE INVENTARIO - MARLON CASTILLO")
-    print(" 1. Agregar \n 2. Mostrar \n 3. Buscar \n 4. Actualizar \n 5. Eliminar \n 6. Estadísticas \n 7. Guardar CSV \n 8. Cargar CSV \n 8. Salir")
+    print(" 1. Agregar \n 2. Mostrar \n 3. Buscar \n 4. Actualizar \n 5. Eliminar \n 6. Estadísticas \n 7. Guardar CSV \n 8. Cargar CSV \n 9. Salir")
     id_menu = int(input("\nDigite un número (1 -9) según lo que desee hacer: "))
     return id_menu
 
