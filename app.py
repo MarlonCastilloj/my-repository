@@ -27,7 +27,7 @@ while True:
 
         elif option == 8:
             upload_csv()
-
+        input("\nPresione ENTER para continuar...") 
     elif option == 9:
         print("__El programa finalizó, hasta luego__")
         break
